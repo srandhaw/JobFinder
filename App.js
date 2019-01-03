@@ -7,6 +7,8 @@ import MapScreen from './screens/MapScreen'
 import DeckScreen from './screens/DeckScreen'
 import SettingsScreen from './screens/SettingsScreen'
 import ReviewScreen from './screens/ReviewScreen'
+import {Provider} from 'react-redux'
+import store from './store'
 
 const MainNavigator = createBottomTabNavigator({
       welcome: WelcomeScreen,
@@ -26,7 +28,9 @@ const AppContainer = createAppContainer(MainNavigator);
  class App extends React.Component {
   render() {
       return (
+        <Provider store = {store}>
       <AppContainer/>
+      </Provider>
     );
   }
 }
