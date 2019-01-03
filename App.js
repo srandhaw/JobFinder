@@ -21,6 +21,8 @@ const MainNavigator = createBottomTabNavigator({
                   settings: SettingsScreen,
              })
         }),
+    },{
+      lazy: true
     })
 
 const AppContainer = createAppContainer(MainNavigator);
