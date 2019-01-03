@@ -11,11 +11,11 @@ const SLIDE_DATA = [
 
 class WelcomeScreen extends Component{
 
-     static navigationOptions = ({ navigation }) => {
-   return {
-      tabBarVisible: false
-   };
- }
+//      static navigationOptions = ({ navigation }) => {
+//    return {
+//       tabBarVisible: false
+//    };
+//  }
 
     onSlidesComplete=()=>{
        this.props.navigation.navigate('auth')

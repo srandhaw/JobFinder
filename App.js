@@ -11,9 +11,17 @@ import {Provider} from 'react-redux'
 import store from './store'
 
 const MainNavigator = createBottomTabNavigator({
-      welcome: WelcomeScreen,
-      auth:  AuthScreen,
-      main: createBottomTabNavigator({
+      welcome: {
+        screen: WelcomeScreen,
+        navigationOptions: {tabBarVisible: false},
+        },
+      auth: {
+        screen: AuthScreen,
+        navigationOptions: {tabBarVisible: false},
+        },
+      main: {
+        navigationOptions: {tabBarVisible: false},
+        screen: createBottomTabNavigator({
            map: MapScreen,
            deck: DeckScreen,
            review: createStackNavigator({
@@ -21,8 +29,7 @@ const MainNavigator = createBottomTabNavigator({
                   settings: SettingsScreen,
              })
         }),
-    },{
-      lazy: true
+      },
     })
 
 const AppContainer = createAppContainer(MainNavigator);
