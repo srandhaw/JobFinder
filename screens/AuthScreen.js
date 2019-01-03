@@ -5,12 +5,6 @@ import * as actions from '../actions'
 
 class AuthScreen extends Component{
 
-//     static navigationOptions = ({ navigation }) => {
-//    return {
-//       tabBarVisible: false
-//    };
-//  }
-
     componentDidMount(){
         this.props.facebookLogin()
        // AsyncStorage.removeItem('fb_token')
@@ -33,14 +27,7 @@ class AuthScreen extends Component{
     render(){
         return(
             <View>
-            <Text>AUTH SCREEN</Text>
-            <Text>AUTH SCREEN</Text>
-            <Text>AUTH SCREEN</Text>
-            <Text>AUTH SCREEN</Text>
-            <Text>AUTH SCREEN</Text>
-            <Text>AUTH SCREEN</Text>
-            <Text>AUTH SCREEN</Text>
-            <Text>AUTH SCREEN</Text>
+            
             </View>
         )
     }
