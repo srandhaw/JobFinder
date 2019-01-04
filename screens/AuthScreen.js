@@ -12,7 +12,6 @@ class AuthScreen extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        console.log(nextProps)
         this.onAuthComplete(nextProps)
     }
 
