@@ -1,41 +1,18 @@
 import axios from 'axios'
-import reverseGeocode from 'latlng-to-zip'
-import qs fro 'qs'
+import {geo2zip} from 'geo2zip'
 
 import {FETCH_JOBS} from './types'
-
-const JOB_ROOT_URL = 'http://api.indeed.com/ads/apisearch?'
-
-const JOB_QUERY_PARAMS = {
-    publisher:'1303284387458115',
-    format: 'json',
-    v: '2',
-    latlong: '1',
-    radius: '10',
-    q:'javascript',
-    userip: '1.2.3.4',
-    useragent: 'Mozilla/%2F4.0%28Firefox%29',
-}
-
-const buildJobsUrl = (zip)=> {
- const query = qs.stringify({...JOB_QUERY_PARAMS,l: zip})
- return `${JOB_ROOT_URL}${query}`
-}
 
 
 export const fetchJobs = (region) =>{
     return async(dispatch) => {
-        try{
-       let zip = await reverseGeocode(region)
-       const url = buildJobsUrl(zip)
-       let result = await axios.get(url)
-       dispatch({
-           type: FETCH_JOBS,
-           payload: result.data,
-       })
+        try {
+            let zip = await geo2zip(region)
+       let result = await axios.get(`http://api.indeed.com/ads/apisearch?publisher=1303284387458115&l=${zip}&q=javascript&radius=20&latlong=1&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json`)
        console.log(result.data)
-        }catch(err){
-             console.log(err); 
+        } catch (error) {
+            
         }
-    }
+}
+
 }

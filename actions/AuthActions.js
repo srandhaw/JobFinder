@@ -32,6 +32,7 @@ const doFacebookLogin = async(dispatch) =>{
      let result = await Expo.Facebook.logInWithReadPermissionsAsync('332399664280325',{
          permissions: ['public_profile'],
      })
+   
 
      
      if(result.type === 'success'){
