@@ -7,7 +7,7 @@ class AuthScreen extends Component{
 
     componentDidMount(){
         this.props.facebookLogin()
-       // AsyncStorage.removeItem('fb_token')
+       //AsyncStorage.removeItem('fb_token')
         this.onAuthComplete(this.props)
     }
 
