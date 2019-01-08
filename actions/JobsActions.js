@@ -4,7 +4,7 @@ import {geo2zip} from 'geo2zip'
 import {FETCH_JOBS} from './types'
 
 
-export const fetchJobs = (region) =>{
+export const fetchJobs = (region, callback) =>{
     return async(dispatch) => {
         try {
             let zip = await geo2zip(region)
@@ -13,6 +13,7 @@ export const fetchJobs = (region) =>{
            type: FETCH_JOBS,
            payload: result.data,
        })
+       callback()
         } catch (error) {
             
         }
