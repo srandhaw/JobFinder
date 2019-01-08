@@ -5,8 +5,6 @@ import {Facebook} from 'expo'
 export const facebookLogin = () =>{
 
     return async(dispatch) => {
-
-
     try{
   let token = await AsyncStorage.getItem('fb_token')
    
@@ -21,8 +19,6 @@ export const facebookLogin = () =>{
     }catch(err){
        console.log(err);
     }
-
-
 }
     
 }
